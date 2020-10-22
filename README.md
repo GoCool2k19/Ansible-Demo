@@ -6,7 +6,7 @@ Steps to Deploy this Solution from Ansible
 1. Login to your Ansible control Node
 2. Create a Directory using the command "mkdir Ansible_Deployment"
 3. Navigate into that directory with the command "cd  Ansible_Deployment"
-4. Clone the Github Repository "git clone git clone https://github.com/GoCool2k19/Ansible-Demo.git". This will download a Folder named Ansible-Demo in your current working directory.
+4. Clone the Github Repository "git clone https://github.com/GoCool2k19/Ansible-Demo.git". This will download a Folder named Ansible-Demo in your current working directory.
 5. Get into the Directory Ansible-Demo/ELB "cd Ansible-Demo/ELB/group_vars/"
 6. Open up the variables file named "all" in Vi editor "vi all", copy all the contents in a notepad and close the file.
 7. Delete the file named all. "rm all"
