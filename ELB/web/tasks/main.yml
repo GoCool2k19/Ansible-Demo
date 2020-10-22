@@ -4,7 +4,7 @@
     - start nginx
 
 - name: Upload default index.html for host
-  copy: src=static_files/index.html dest=/usr/share/nginx/gsk.demo.com mode=0644
+  copy: src=static_files/index.html dest=/usr/share/nginx/html mode=0644
 
 - name: Add static site config files
   template:
