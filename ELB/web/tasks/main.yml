@@ -4,7 +4,10 @@
     - start nginx
 
 - name: Upload default index.html for host
-  copy: src=static_files/index.html dest=/usr/share/nginx/html mode=0644
+  copy: src=static_files/index.html dest=/usr/share/nginx/html/index.html mode=0644
+
+- name: Upload default index.html for host.
+  copy: src=static_files/index.html dest=/var/www/html/index.nginx-debian.html mode=0644
 
 - name: Add static site config files
   template:
