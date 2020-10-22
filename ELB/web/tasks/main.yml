@@ -13,3 +13,7 @@
     owner: root
     group: root
     mode: 0644
+- name: Reload NGINX
+  service:
+    name: nginx
+    state: reloaded
