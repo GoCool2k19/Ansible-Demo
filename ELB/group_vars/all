@@ -1,6 +1,12 @@
-region: us-east-1
-instance_type: t2.nano
-ami: ami-49c9295f  # Ubuntu 14.04 LTS
+ec2_access_key: xxxxxxxxxxxxxxxxxx
+ec2_secret_key: xxxxxxxxxxxxxxxxxxxxxxx
+region: eu-west-2
+instance_type: t2.micro
+ami: ami-0383d1a548b3a324c  # Ubuntu 16.04 LTS
 app_code_user: "ubuntu" # remote user
+app_code_user_1: "user-1"
+app_code_user_2: "user-2"
 env: demo
-pem_key: einsteinish # key.pem
+project_name: gsk
+hoststring: "ansible_ssh_user=ubuntu ansible_ssh_private_key_file=/home/ubuntu/.ssh/id_rsa"
+hostpath: "/etc/ansible/hosts"
