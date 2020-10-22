@@ -56,6 +56,7 @@
         wait: yes
         instance_tags:
             env: "{{ env }}"
+            Name: GSK_Web_Server
         count_tag: env
         exact_count: 2
         vpc_subnet_id: subnet-4be82722
