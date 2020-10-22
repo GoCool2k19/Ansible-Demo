@@ -8,4 +8,4 @@ Steps to Deploy this Solution from Ansible
 3. Navigate into that directory with the command "cd  Ansible_Deployment"
 4. Clone the Github Repository "git clone git clone https://github.com/GoCool2k19/Ansible-Demo.git". This will download a Folder named Ansible-Demo in your current working directory.
 5. Get into the Directory Ansible-Demo/ELB "cd Ansible-Demo/ELB"
-6. Get into the directory 
+6. Get into the directory .
