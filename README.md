@@ -1,25 +1,7 @@
 # Ansible-Demo
 Public Repo for Demonstrating a NGINX Load Balanced Webapp Solution
 
-#Tree Structure 
-.
-├── ELB
-│   ├── group_vars
-│   │   └── all
-│   ├── site.yml
-│   └── web
-│       ├── handlers
-│       │   └── main.yml
-│       ├── static_files
-│       │   ├── demo.gsk.com.conf.j2
-│       │   └── index.html
-│       └── tasks
-│           └── main.yml
-└── README.md
-
-6 directories, 7 files
-
-#Steps to Deploy this Solution from Ansible
+# Steps to Deploy this Solution from Ansible
 
 1. Login to your Ansible control Node
 2. Create a Directory using the command "mkdir Ansible_Deployment"
