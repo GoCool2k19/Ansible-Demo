@@ -5,3 +5,11 @@
 
 - name: Upload default index.html for host
   copy: src=static_files/index.html dest=/usr/share/nginx/www/ mode=0644
+
+- name: Add static site config files
+  template:
+    src: static_files/demo.gsk.com.conf.j2
+    dest: "/etc/nginx/conf.d/demo.gsk.com.conf"
+    owner: root
+    group: root
+    mode: 0644
