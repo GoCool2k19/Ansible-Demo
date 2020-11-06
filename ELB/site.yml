@@ -38,7 +38,7 @@
         region: "{{ region }}"
         #aws_access_key: "{{ec2_access_key}}"
         #aws_secret_key: "{{ec2_secret_key}}"
-        key_material: "{{ lookup('file', '/home/ubuntu/.ssh/id_rsa.pub') }}"
+        key_material: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCCj3kSrj8WcsNPnypGZ4oB/2/Jx4sRZk/n9N9dUPbnosjN1/xNswBk/bjaQNDZm+NsYxN9kGpoFWiwY4exN8BsgrSDWaev2ww0qHDSlC9FynQ9m6xH2V/1Z4BHOM0Tj4mg6XkoE+8/uEeu2HFyYBTcuaHxbtQ0ejku/y/UGyIFsYVXJcs13V3rMOa4gCw5RMDSk2UmcgocfRhelqmgVThht4PmfSXkUEIkF8qJxDOkRMN02pqClXYRq1/oQTMy10Wpe+FxkYSDc/UToQVVT9vQ9w3lvt9VP5SDGLrqHvvGlzE1KDaePCnvaMssolviFbnzGNfHRfxcCJvJ+pkfDFl3 Ubuntu_Ansible_KeyPair'
       register: ec2_key
 
 #    - name: Save private key
