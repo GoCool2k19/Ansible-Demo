@@ -31,7 +31,7 @@
             cidr_ip: 0.0.0.0/0
       register: demo_firewall
 
-    - name: create key pair using key_material obtained using 'file' lookup plugin
+    - name: create key pair using key_material obtained using file lookup plugin
       amazon.aws.ec2_key:
         name: "{{ project_name }}-{{ env }}-key"
         region: "{{ region }}"
