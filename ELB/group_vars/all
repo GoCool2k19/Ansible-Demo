@@ -1,5 +1,5 @@
-ec2_access_key: xxxxxxxxxxxxxxxxxx
-ec2_secret_key: xxxxxxxxxxxxxxxxxxxxxxx
+#ec2_access_key: xxxxxxxxxxxxxxxxxx
+#ec2_secret_key: xxxxxxxxxxxxxxxxxxxxxxx
 region: eu-west-2
 instance_type: t2.micro
 ami: ami-0383d1a548b3a324c  # Ubuntu 16.04 LTS
