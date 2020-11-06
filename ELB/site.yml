@@ -40,9 +40,9 @@
         key_material: "{{ lookup('file', '/home/ubuntu/.ssh/id_rsa.pub') }}"
       register: ec2_key
 
-    - name: Save private key
-      copy: content="{{ ec2_key.key.private_key }}" dest="/home/ubuntu/.ssh/id_rsa" mode=0600
-      when: ec2_key.changed     
+#    - name: Save private key
+#      copy: content="{{ ec2_key.key.private_key }}" dest="/home/ubuntu/.ssh/id_rsa" mode=0600
+#      when: ec2_key.changed     
 
     - name: Create  EC2 instance(s)
       ec2:
