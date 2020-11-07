@@ -91,7 +91,7 @@
 - name: webservers (installs nginx ...)
   hosts: launchedu
   remote_user: ubuntu
-  become: true
+  become: yes
   become_method: sudo
   gather_facts: True
   roles:
