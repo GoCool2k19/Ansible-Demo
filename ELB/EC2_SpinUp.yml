@@ -88,6 +88,11 @@
   become: yes
   remote_user: ec2-user
   tasks:
+    - name: Add Group
+      group:
+        name: admin
+        state: present
+        
     - name: Allow 'admin' group to have passwordless sudo
       lineinfile:
         dest: /etc/sudoers
@@ -98,7 +103,7 @@
 
 
     - name: Add sudoers users to admin group
-      user: name="{{item}}" groups=admins append=yes state=present createhome=yes
+      user: name="{{item}}" groups=admin append=yes state=present createhome=yes
       with_items:
         - "{{ app_code_user_1 }}"
         - "{{ app_code_user_2 }}"
