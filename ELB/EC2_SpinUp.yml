@@ -52,7 +52,7 @@
         wait: yes
         instance_tags:
             env: "{{ env }}"
-            Name: GSK_Web_Server_RHEL
+            Name: G-RHEL
             Owner: Gokul_Rajendran
             Purpose: GSK_Demo
             Department: CCS_DevOps
