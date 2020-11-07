@@ -54,7 +54,7 @@
         region: "{{ region }}"
         group_id: "{{ demo_firewall.group_id }}"
         instance_type: "{{ instance_type }}"
-        image: "{{ ami }}"
+        image: "{{ ubuntu_ami }}"
         wait: yes
         instance_tags:
             env: "{{ env }}"
