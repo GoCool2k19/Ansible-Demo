@@ -41,9 +41,9 @@
         key_material: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCCj3kSrj8WcsNPnypGZ4oB/2/Jx4sRZk/n9N9dUPbnosjN1/xNswBk/bjaQNDZm+NsYxN9kGpoFWiwY4exN8BsgrSDWaev2ww0qHDSlC9FynQ9m6xH2V/1Z4BHOM0Tj4mg6XkoE+8/uEeu2HFyYBTcuaHxbtQ0ejku/y/UGyIFsYVXJcs13V3rMOa4gCw5RMDSk2UmcgocfRhelqmgVThht4PmfSXkUEIkF8qJxDOkRMN02pqClXYRq1/oQTMy10Wpe+FxkYSDc/UToQVVT9vQ9w3lvt9VP5SDGLrqHvvGlzE1KDaePCnvaMssolviFbnzGNfHRfxcCJvJ+pkfDFl3 Ubuntu_Ansible_KeyPair'
       register: ec2_key
 
-#    - name: Save private key
-#      copy: content="{{ ec2_key.key.private_key }}" dest="/home/ubuntu/.ssh/id_rsa" mode=0600
-#      when: ec2_key.changed     
+    - name: Save private key
+      copy: content="{{ ec2_key.key.private_key }}" dest="/home/ubuntu/.ssh/id_rsa" mode=0600
+      when: ec2_key.changed     
 
     - name: Create  EC2 instance(s)
       ec2:
@@ -66,7 +66,7 @@
         exact_count: 2
         vpc_subnet_id: subnet-4be82722
         assign_public_ip: yes
-      register: ec2
+      register: ec2u
 
 
     - name: Add the newly created EC2 instance(s) to host group
@@ -77,18 +77,18 @@
         line: "{{ item.public_ip }} {{hoststring}}"
         state: present
         #backup: yes
-      with_items: "{{ ec2.instances }}"
+      with_items: "{{ ec2u.instances }}"
 
     - name: wait for the servers to appear on the network
       wait_for: host={{ item.public_dns_name }} port=22 delay=10 timeout=180 state=started
-      with_items: "{{ ec2.tagged_instances }}"
+      with_items: "{{ ec2u.tagged_instances }}"
 
     - name: add server ip addresses to hosts group
-      add_host: hostname={{ item.public_ip }} groupname=launched
-      with_items: "{{ ec2.tagged_instances }}"
+      add_host: hostname={{ item.public_ip }} groupname=launchedu
+      with_items: "{{ ec2u.tagged_instances }}"
 
 - name: webservers (installs nginx ...)
-  hosts: launched
+  hosts: launchedu
   remote_user: ubuntu
   become: true
   become_method: sudo
@@ -125,9 +125,9 @@
         region: "{{ region }}"
         # aws_access_key: "{{ec2_access_key}}"
         # aws_secret_key: "{{ec2_secret_key}}"
-      with_items: "{{ ec2.tagged_instances }}"
+      with_items: "{{ ec2u.tagged_instances }}"
 - name: Add Users/Group
-  hosts: launched
+  hosts: launchedu
   remote_user: ubuntu
   become: true
   become_method: sudo
@@ -157,3 +157,4 @@
       authorized_key: user="{{app_code_user_1}}" key="{{item}}"
       with_file:
         - /home/ubuntu/.ssh/id_rsa.pub
+
