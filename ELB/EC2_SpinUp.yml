@@ -56,7 +56,8 @@
             Owner: Gokul_Rajendran
             Purpose: GSK_Demo
             Department: CCS_DevOps
-        count_tag: env
+            RHELOS: 18
+        count_tag: RHELOS
         exact_count: 2
         vpc_subnet_id: subnet-4be82722
         assign_public_ip: yes
