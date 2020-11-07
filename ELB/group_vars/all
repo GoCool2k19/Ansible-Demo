@@ -2,7 +2,7 @@
 #ec2_secret_key: xxxxxxxxxxxxxxxxxxxxxxx
 region: eu-west-2
 instance_type: t2.micro
-ami: ami-0383d1a548b3a324c  # Ubuntu 16.04 LTS
+ubuntu_ami: ami-0383d1a548b3a324c  # Ubuntu 16.04 LTS
 rhel_ami: ami-0fc841be1f929d7d1 #Red Hat Enterprise Linux 8 (HVM), SSD Volume Type 
 app_code_user: "ubuntu" # remote user
 app_code_user_1: "user-1"
