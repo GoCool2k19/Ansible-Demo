@@ -97,18 +97,18 @@
         validate: 'visudo -cf %s'
 
 
-#     - name: Add sudoers users to admin group
-#       user: name="{{item}}" groups=admin append=yes state=present createhome=yes
-#       with_items:
-#         - "{{ app_code_user_1 }}"
-#         - "{{ app_code_user_2 }}"
+    - name: Add sudoers users to admin group
+      user: name="{{item}}" groups=admins append=yes state=present createhome=yes
+      with_items:
+        - "{{ app_code_user_1 }}"
+        - "{{ app_code_user_2 }}"
 
-#     - name: Set up authorized keys for the user-1
-#       authorized_key: user="{{app_code_user_1}}" key="{{item}}"
-#       with_file:
-#         - /home/ec2-user/.ssh/id_rsa.pub
+    - name: Set up authorized keys for the user-1
+      authorized_key: user="{{app_code_user_1}}" key="{{item}}"
+      with_file:
+        - /home/ec2-user/.ssh/id_rsa.pub
 
-#     - name: Set up authorized keys for the user-2
-#       authorized_key: user="{{app_code_user_1}}" key="{{item}}"
-#       with_file:
-#         - /home/ec2-user/.ssh/id_rsa.pub
+    - name: Set up authorized keys for the user-2
+      authorized_key: user="{{app_code_user_1}}" key="{{item}}"
+      with_file:
+        - /home/ec2-user/.ssh/id_rsa.pub
