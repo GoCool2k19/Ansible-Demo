@@ -83,6 +83,9 @@
 
 - name: Add Users/Group
   hosts: launched
+  connection: local
+  become: yes
+  remote_user: ec2-user
   tasks:
     - name: Allow 'admin' group to have passwordless sudo
       lineinfile:
