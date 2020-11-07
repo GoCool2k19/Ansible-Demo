@@ -38,9 +38,9 @@
         key_material: 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCCj3kSrj8WcsNPnypGZ4oB/2/Jx4sRZk/n9N9dUPbnosjN1/xNswBk/bjaQNDZm+NsYxN9kGpoFWiwY4exN8BsgrSDWaev2ww0qHDSlC9FynQ9m6xH2V/1Z4BHOM0Tj4mg6XkoE+8/uEeu2HFyYBTcuaHxbtQ0ejku/y/UGyIFsYVXJcs13V3rMOa4gCw5RMDSk2UmcgocfRhelqmgVThht4PmfSXkUEIkF8qJxDOkRMN02pqClXYRq1/oQTMy10Wpe+FxkYSDc/UToQVVT9vQ9w3lvt9VP5SDGLrqHvvGlzE1KDaePCnvaMssolviFbnzGNfHRfxcCJvJ+pkfDFl3 Ubuntu_Ansible_KeyPair'
       register: ec2_key
 
-#    - name: Save private key
-#      copy: content="{{ ec2_key.key.private_key }}" dest="/home/ec2-user/.ssh/id_rsa" mode=0600
-#      when: ec2_key.changed     
+    - name: Save private key
+      copy: content="{{ ec2_key.key.private_key }}" dest="/home/ec2-user/.ssh/id_rsa" mode=0600
+      when: ec2_key.changed     
 
     - name: Create  EC2 instance(s)
       ec2:
